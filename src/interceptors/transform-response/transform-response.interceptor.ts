@@ -16,9 +16,7 @@ export class TransformResponsInterceptor<T> implements NestInterceptor<T, Standa
   const response = httpContext.getResponse();
   const statusCode = response.statusCode;
 
-
-
-return next.handle().pipe(
+  return next.handle().pipe(  
       map((data) => ({
         success: true,
         message: 'Data berahasil diambil',
@@ -28,5 +26,5 @@ return next.handle().pipe(
     );
   }
 
-  
+
 }
