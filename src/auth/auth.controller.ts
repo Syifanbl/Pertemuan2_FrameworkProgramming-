@@ -1,6 +1,7 @@
 import { Body, Controller, Patch, Post } from '@nestjs/common';
 import { RegisterDto } from '../books/dto/register.dto.js';
-import { AuthService } from './auth.service.js';
+import { AuthService } from './auth.service.js'
+;import { LoginDto } from './dto/login.dto.js';
 
 @Controller('auth')
 export class AuthController {
@@ -12,10 +13,9 @@ export class AuthController {
     }
 
     @Post('login')
-    login() {
-        return this.authService.login();
+    login(@Body() loginDto: LoginDto) {
+        return this.authService.login(loginDto);
     }
-
     @Post('forgot-password')
     forgotPassword(){
         return this.authService.forgotPassword();

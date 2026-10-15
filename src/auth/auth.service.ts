@@ -16,13 +16,15 @@ export class AuthService {
         return newUser;
     }
 
-    //login
+   
+    // login
     login(loginDto: LoginDto): string {
         const user = new User();
-        user.email = loginDto.email;
+        user.username = loginDto.username;
         user.password = loginDto.password;
         return "User berhasil login";
     }
+
 
     //forgot password
     forgotPassword(){
